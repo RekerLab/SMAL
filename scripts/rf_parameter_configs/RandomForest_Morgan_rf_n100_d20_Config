@@ -1,0 +1,11 @@
+{
+    "data_format": "mgktools",
+    "model": "random_forest",
+    "fingerprints_class": [
+        "morgan"
+    ],
+    "radius": 2,
+    "num_bits": 1024,
+    "n_estimators": 100,
+    "max_depth": 20
+}

@@ -52,6 +52,24 @@ DATA_ROOT=/path/to/simpd_csvs OUT_ROOT=/path/to/output bash scripts/simpd-rf_mor
 
 The SIMPD SMAL script reads per-dataset `f_min_train_size` and `max_iter` values from `scripts/simpd-smal-params.csv`. Override with `FMIN_TABLE` only if you have regenerated those manuscript parameters.
 
+Stratified-shuffle label-error scripts default to `./results-stratified_shuffle/<active_learning|smal>`:
+
+```bash
+bash scripts/stratified_shuffle-rf_morgan-al.sh
+bash scripts/stratified_shuffle-rf_morgan-smal.sh
+```
+
+The stratified-shuffle SMAL script reads `f_min_train_size` and `max_iter` from `scripts/stratified_shuffle-smal-params.csv`.
+
+RF parameter-set scripts default to `./results-rf-parameter-sets`. They use the custom RandomForest/Morgan configs in `scripts/rf_parameter_configs/`; the active-learning script writes `manifest.csv`, and the SMAL script writes `smal_manifest.csv` for `scripts/build_processed_results.py`.
+
+```bash
+bash scripts/rf_parameter_sets-rf_morgan-al.sh
+bash scripts/rf_parameter_sets-rf_morgan-smal.sh
+```
+
+The RF parameter-set SMAL script reads `f_min_train_size` and `max_iter` from `scripts/rf_parameter_sets-smal-params.csv`.
+
 The scripts are intentionally **simple sequential loops** — they do not submit SLURM jobs, parallelize, or skip already-completed runs. For HPC use, wrap each `molalkit_run` invocation in your own job scheduler.
 
 ## Currently included experiments
@@ -60,7 +78,7 @@ The scripts are intentionally **simple sequential loops** — they do not submit
 |-------|----------|----------------|
 | RandomForest/Morgan | ames, CYP2D6_Veith, CYP3A4_Veith, MDR1_MDCK_classification2, PAMPA_NCATS, pgp_broccatelli | al, pl, smal |
 | RandomForest/Morgan | SIMPD ChEMBL datasets (`CHEMBL*.csv`) | al, pl, smal |
+| RandomForest/Morgan | ames, CYP2D6_Veith, CYP3A4_Veith, MDR1_MDCK_classification2, PAMPA_NCATS, pgp_broccatelli with stratified-shuffle label errors | al, smal |
+| RandomForest/Morgan RF parameter sweep | MDR1_MDCK_classification2, PAMPA_NCATS, pgp_broccatelli | al, smal |
 | DMPNN | pgp_broccatelli | al |
 | MolFormer | pgp_broccatelli | al |
-
-Additional experiments (imbalanced datasets, stratified shuffle split, RF hyperparameter sweep) will be added in the same `<dataset>-<model>-<learning_type>.sh` format.
