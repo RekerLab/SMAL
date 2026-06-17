@@ -27,4 +27,4 @@ These files are copied from the local MolALKit packaged datasets and the SIMPD s
 
 ## Colab demo
 
-For a single-run, browser-only walkthrough, upload [`colab_demo.ipynb`](colab_demo.ipynb) to [Google Colab](https://colab.research.google.com/). The notebook installs MolALKit v1.2.0, exposes the full parameter space used in `scripts/` (dataset, model, learning strategy, seed, error rate, forget method), and runs an SMAL example on the `pgp_broccatelli` dataset by default.
+For a single-run, browser-only walkthrough, upload [`colab_demo.ipynb`](colab_demo.ipynb) to [Google Colab](https://colab.research.google.com/). The notebook installs MolALKit v1.2.0 and runs an SMAL example on the `pgp_broccatelli` dataset by default.
