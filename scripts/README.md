@@ -14,7 +14,7 @@ Where `learning_type` is one of:
 | `pl`   | Passive learning (random selection: `--select_method random`) |
 | `smal` | Short-term Memory Active Learning (AL with `--forget_method` and `--n_forget`) |
 
-Each script is self-contained: it loops over the seeds, error rates, and (for SMAL) forget methods used in the manuscript, calling `molalkit_run` once per combination.
+Each run script loops over the seeds, error rates, and (for SMAL) forget methods used in the manuscript, calling `molalkit_run` once per combination. The grouped SIMPD scripts use one script per learning type and loop over all committed `datasets/CHEMBL*.csv` files.
 
 ## Prerequisites
 
@@ -44,6 +44,14 @@ OUT_ROOT=/path/to/output bash scripts/ames-rf_morgan-smal.sh
 
 DMPNN and MolFormer pgp active-learning scripts default to model-specific output roots, `./results-dmpnn/active_learning` and `./results-molformer/active_learning`, respectively. They also accept `OUT_ROOT`.
 
+SIMPD scripts default to `./results-simpd/<active_learning|passive_learning|smal>`. Each SIMPD dataset CSV contains a `split` column; the scripts preserve this split by creating temporary MolALKit input files with `SMILES` and `Y` columns, using the `train` rows for active learning and the `test` rows for validation. Override the dataset location with `DATA_ROOT` if needed:
+
+```bash
+DATA_ROOT=/path/to/simpd_csvs OUT_ROOT=/path/to/output bash scripts/simpd-rf_morgan-al.sh
+```
+
+The SIMPD SMAL script reads per-dataset `f_min_train_size` and `max_iter` values from `scripts/simpd-smal-params.csv`. Override with `FMIN_TABLE` only if you have regenerated those manuscript parameters.
+
 The scripts are intentionally **simple sequential loops** — they do not submit SLURM jobs, parallelize, or skip already-completed runs. For HPC use, wrap each `molalkit_run` invocation in your own job scheduler.
 
 ## Currently included experiments
@@ -51,7 +59,8 @@ The scripts are intentionally **simple sequential loops** — they do not submit
 | Model | Datasets | Learning types |
 |-------|----------|----------------|
 | RandomForest/Morgan | ames, CYP2D6_Veith, CYP3A4_Veith, MDR1_MDCK_classification2, PAMPA_NCATS, pgp_broccatelli | al, pl, smal |
+| RandomForest/Morgan | SIMPD ChEMBL datasets (`CHEMBL*.csv`) | al, pl, smal |
 | DMPNN | pgp_broccatelli | al |
 | MolFormer | pgp_broccatelli | al |
 
-Additional experiments (imbalanced datasets, SIMPD split, stratified shuffle split, RF hyperparameter sweep) will be added in the same `<dataset>-<model>-<learning_type>.sh` format.
+Additional experiments (imbalanced datasets, stratified shuffle split, RF hyperparameter sweep) will be added in the same `<dataset>-<model>-<learning_type>.sh` format.
