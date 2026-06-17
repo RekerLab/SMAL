@@ -1,0 +1,50 @@
+dataset,dataset_label,model,seed,runtime_hours
+pgp_broccatelli,Pgp,Random Forest,10,0.1963888888888889
+pgp_broccatelli,Pgp,Random Forest,11,0.14805555555555555
+pgp_broccatelli,Pgp,Random Forest,12,0.1713888888888889
+pgp_broccatelli,Pgp,Random Forest,13,0.15361111111111111
+pgp_broccatelli,Pgp,Random Forest,14,0.22166666666666668
+pgp_broccatelli,Pgp,Random Forest,15,0.18666666666666668
+pgp_broccatelli,Pgp,Random Forest,16,0.1686111111111111
+pgp_broccatelli,Pgp,Random Forest,17,0.13027777777777777
+pgp_broccatelli,Pgp,Random Forest,18,0.14055555555555554
+pgp_broccatelli,Pgp,Random Forest,19,0.11666666666666667
+pgp_broccatelli,Pgp,D-MPNN,0,5.6675
+pgp_broccatelli,Pgp,D-MPNN,1,6.488888888888889
+pgp_broccatelli,Pgp,D-MPNN,2,5.289166666666667
+pgp_broccatelli,Pgp,D-MPNN,3,5.321111111111111
+pgp_broccatelli,Pgp,D-MPNN,4,5.324166666666667
+pgp_broccatelli,Pgp,D-MPNN,5,6.495277777777778
+pgp_broccatelli,Pgp,D-MPNN,6,6.580277777777778
+pgp_broccatelli,Pgp,D-MPNN,7,5.086944444444445
+pgp_broccatelli,Pgp,D-MPNN,8,5.136111111111111
+pgp_broccatelli,Pgp,D-MPNN,9,6.0777777777777775
+pgp_broccatelli,Pgp,D-MPNN,10,6.510833333333333
+pgp_broccatelli,Pgp,D-MPNN,11,9.375
+pgp_broccatelli,Pgp,D-MPNN,12,5.578333333333333
+pgp_broccatelli,Pgp,D-MPNN,13,6.053333333333334
+pgp_broccatelli,Pgp,D-MPNN,14,6.2155555555555555
+pgp_broccatelli,Pgp,D-MPNN,15,5.510277777777778
+pgp_broccatelli,Pgp,D-MPNN,16,6.306111111111111
+pgp_broccatelli,Pgp,D-MPNN,17,6.225833333333333
+pgp_broccatelli,Pgp,D-MPNN,18,6.908611111111111
+pgp_broccatelli,Pgp,D-MPNN,19,5.186388888888889
+pgp_broccatelli,Pgp,MolFormer,0,15.669444444444444
+pgp_broccatelli,Pgp,MolFormer,1,32.76444444444444
+pgp_broccatelli,Pgp,MolFormer,2,10.535
+pgp_broccatelli,Pgp,MolFormer,3,18.988611111111112
+pgp_broccatelli,Pgp,MolFormer,4,27.423333333333332
+pgp_broccatelli,Pgp,MolFormer,5,18.107222222222223
+pgp_broccatelli,Pgp,MolFormer,6,35.20944444444444
+pgp_broccatelli,Pgp,MolFormer,7,35.74527777777778
+pgp_broccatelli,Pgp,MolFormer,8,10.836388888888889
+pgp_broccatelli,Pgp,MolFormer,9,12.463333333333333
+pgp_broccatelli,Pgp,MolFormer,10,54.809444444444445
+pgp_broccatelli,Pgp,MolFormer,12,10.096944444444444
+pgp_broccatelli,Pgp,MolFormer,13,17.024444444444445
+pgp_broccatelli,Pgp,MolFormer,14,77.54666666666667
+pgp_broccatelli,Pgp,MolFormer,15,32.74527777777778
+pgp_broccatelli,Pgp,MolFormer,16,51.138888888888886
+pgp_broccatelli,Pgp,MolFormer,17,18.83388888888889
+pgp_broccatelli,Pgp,MolFormer,18,21.845277777777778
+pgp_broccatelli,Pgp,MolFormer,19,16.031944444444445

@@ -1,7 +1,7 @@
 Figure notebooks for the SMAL manuscript.
 
 Each notebook regenerates exactly one SVG file in this directory from
-`../results_processed/figure_svg_payloads.csv`:
+CSV inputs in `../results_processed/`:
 
 - `figure2.ipynb` -> `figure2.svg`
 - `figure3.ipynb` -> `figure3.svg`

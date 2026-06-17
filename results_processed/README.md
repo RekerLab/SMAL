@@ -1,8 +1,13 @@
 Processed figure inputs for the SMAL manuscript.
 
-`figure_svg_payloads.csv` contains one row per generated manuscript figure
-(`figure2` through `figure6` and `figureS1` through `figureS14`). Each row stores
-the source SVG as a gzip-compressed, base64-encoded payload plus the source SVG
-SHA-256 checksum.
+The notebooks in `../figures/` draw figures from these CSV files only. The main
+tables are:
 
-The notebooks in `../figures/` read this CSV and regenerate one SVG file each.
+- `learning_curves.csv` and `learning_auc_stats.csv`: processed learning-curve
+  means and paired AULC tests for figures 2, 4, S6-S14.
+- `label_error_reduction.csv` and `realized_error_rates.csv`: processed
+  label-error summaries for figures 4 and S14.
+- `rf_parameter_curves.csv` and `figureS1-S4_*.csv`: processed RF-parameter
+  sensitivity inputs for figures S1-S4.
+- `figure3_summary.csv`, `figure5_*.csv`, `figure6_*.csv`, and
+  `figureS5_*.csv`: processed source data for the remaining manuscript figures.
