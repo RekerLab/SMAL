@@ -12,6 +12,10 @@ SMAL is built on top of [MolALKit](https://github.com/RekerLab/MolALKit). All ex
 
 The [`scripts/`](scripts/) folder contains one bash script per *(dataset, model, learning_type)* combination. See [`scripts/README.md`](scripts/README.md) for the file-naming convention and usage.
 
+## Processed results and figures
+
+The [`results_processed/`](results_processed/) folder contains processed figure inputs. The [`figures/`](figures/) folder contains one notebook per manuscript figure (`figure2` through `figure6` and `figureS1` through `figureS14`); running a notebook regenerates the corresponding SVG from the processed inputs.
+
 ## Datasets
 
 The [`datasets/`](datasets/) folder contains the CSV input datasets used in this study:
