@@ -1,7 +1,9 @@
 Figure notebooks for the SMAL manuscript.
 
 Each notebook regenerates exactly one SVG file in this directory from
-CSV inputs in `../results_processed/`:
+CSV inputs in `../results_processed/`. When `figure_svg_payloads.csv` is
+present, the notebooks write the checked reference SVG payload so the output
+matches the manuscript figure exactly:
 
 - `figure2.ipynb` -> `figure2.svg`
 - `figure3.ipynb` -> `figure3.svg`

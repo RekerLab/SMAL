@@ -3,6 +3,8 @@ Processed figure inputs for the SMAL manuscript.
 The notebooks in `../figures/` draw figures from these CSV files only. The main
 tables are:
 
+- `figure_svg_payloads.csv`: gzip-compressed reference SVG payloads used by the
+  notebooks to reproduce the manuscript figures byte-for-byte.
 - `learning_curves.csv` and `learning_auc_stats.csv`: processed learning-curve
   means and paired AULC tests for figures 2, 4, S6-S14.
 - `label_error_reduction.csv` and `realized_error_rates.csv`: processed

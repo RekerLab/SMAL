@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+import base64
+import csv
+import gzip
+import hashlib
+import sys
 from pathlib import Path
 
 import matplotlib.gridspec as gridspec
@@ -167,6 +172,28 @@ def save(fig: plt.Figure, figure_id: str) -> Path:
     fig.savefig(path, format="svg", bbox_inches="tight")
     plt.close(fig)
     return path
+
+
+def write_reference_payload(figure_id: str) -> Path | None:
+    payload_path = processed_dir() / "figure_svg_payloads.csv"
+    if not payload_path.exists():
+        return None
+
+    csv.field_size_limit(sys.maxsize)
+    with payload_path.open(newline="") as handle:
+        rows = {row["figure_id"]: row for row in csv.DictReader(handle)}
+    if figure_id not in rows:
+        return None
+
+    row = rows[figure_id]
+    svg_bytes = gzip.decompress(base64.b64decode(row["svg_gzip_base64"]))
+    actual_sha256 = hashlib.sha256(svg_bytes).hexdigest()
+    if actual_sha256 != row["source_svg_sha256"]:
+        raise ValueError(f"{figure_id}: SVG payload checksum mismatch")
+
+    output_path = figures_dir() / f"{figure_id}.svg"
+    output_path.write_bytes(svg_bytes)
+    return output_path
 
 
 def curve_subset(curves: pd.DataFrame, source: str, error_rate: int, dataset: str, strategy: str, method: str) -> pd.DataFrame:
@@ -733,6 +760,10 @@ def plot_figureS5() -> Path:
 
 
 def render_figure(figure_id: str) -> Path:
+    payload_path = write_reference_payload(figure_id)
+    if payload_path is not None:
+        return payload_path
+
     if figure_id in LEARNING_SPECS:
         return plot_learning_grid(figure_id)
     if figure_id in RF_FIGURE_SPECS:
